@@ -59,7 +59,7 @@
     "test": "karma start .config/karma.conf.js --single-run",
     "test:quick": "karma start .config/karma.quick.js",
     "test:windows": "karma start .config/karma.windows.js",
-    "postinstall": ".config/postinstall.js"
+    "postinstall": "node .config/postinstall.js"
   },
   "devDependencies": {
     "coveralls": "^2.11.15",
