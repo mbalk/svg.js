@@ -3,7 +3,7 @@ clone_depth: 1
 # Install scripts. (runs after repo cloning)
 install:
   # install modules
-  - npm install
+  - appveyor-retry npm install
 
 # Post-install test scripts.
 test_script:
@@ -17,5 +17,5 @@ test_script:
 build: off
 
 # build cache to preserve files/folders between builds
-cache:
-  - node_modules  # local npm modules
+#cache:
+#  - node_modules  # local npm modules
