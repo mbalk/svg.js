@@ -1,7 +1,7 @@
 clone_depth: 1
 
 # use Windows 10
-os: Visual Studio 2015
+image: Visual Studio 2015
 
 # matrix from w3's appveyor yml (https://github.com/w3c/respec/blob/develop/appveyor.yml)
 matrix:
