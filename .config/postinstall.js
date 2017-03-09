@@ -10,7 +10,7 @@ if(process.platform === 'win32') {
 
 	const exec = require('child_process').exec
 
-	exec('npm install karma-edge-launcher --production --save-dev', (err, stdout, stderr) => {
+	exec('npm install karma-edge-launcher edge-launcher --production --save-dev', (err, stdout, stderr) => {
 
 		if(err) {
 			console.error(err)
