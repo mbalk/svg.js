@@ -92,7 +92,7 @@ module.exports = function(config) {
 
     // Continuous Integration mode
     // if true, Karma captures browsers, runs the tests and exits
-    singleRun: false,
+    singleRun: true, // the process never ends on appveyor - maybe setting this to true will alliviate that
 
     // Concurrency level
     // how many browser should be started simultaneous
