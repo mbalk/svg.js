@@ -64,7 +64,7 @@ module.exports = function(config) {
       dir: 'coverage/',
       subdir: function(browser) {
         // normalization process to keep a consistent browser name accross different OS
-        return browser.toLowerCase().split(/[ /-]/)[0]; // output the results into: './coverage/edge/'
+        return browser.toLowerCase().split(/[ /-]/)[0]; // output the results into: './coverage/[browser-name]/'
       }
     },
 
@@ -88,7 +88,7 @@ module.exports = function(config) {
 
     // start these browsers
     // available browser launchers: https://npmjs.org/browse/keyword/karma-launcher
-    browsers: ['IE', 'Edge'],
+    browsers: ['IE'/*, 'Edge'*/],
 
     // Continuous Integration mode
     // if true, Karma captures browsers, runs the tests and exits
