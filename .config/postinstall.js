@@ -34,14 +34,14 @@ function detect() {
 
 				log('Windows 7 detected.')
 				log('Installing Microsoft IE11 test launcher.')
+
+				process.env['WIN7'] = true
 				install('karma-ie-launcher')
 
 			}	else {
 
 				log('Installing Microsoft IE11 and Edge test launcher.')
 				install('karma-ie-launcher karma-edge-launcher')
-
-				if(process.env[''])
 
 			}
 
