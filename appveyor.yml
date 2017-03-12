@@ -5,10 +5,11 @@ image: Visual Studio 2017
 
 # Install scripts. (runs after repo cloning)
 install:
+  # https://answers.microsoft.com/en-us/windows/forum/windows_10-win_cortana/reinstall-microsoft-edge/67f129e2-4d5e-42ca-9c89-466b29082a51
   - ps: Get-AppXPackage -AllUsers -Name Microsoft.MicrosoftEdge | Foreach {Add-AppxPackage -DisableDevelopmentMode -Register "$($_.InstallLocation)\AppXManifest.xml" –Verbose}
   - refreshenv
   # install modules
-  - appveyor-retry npm install
+  - npm install
 
 # Post-install test scripts.
 test_script:
