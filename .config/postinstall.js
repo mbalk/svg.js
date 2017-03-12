@@ -1,24 +1,49 @@
+'use strict'
+
 /*
-	 THIS SCRIPT WILL DETECT IF THE OS IS WINDOWS AND IF YES THEN
-	 INSTALL THE NESSEARY NPM MODULES TO EXECUTE THE TEST SUITE
-	 IN IE11 AND EDGE
+	 THIS SCRIPT WILL DETECT OS and install OS specific test dependencies
+	 IF --production IS PASSED npm install THEN THIS SCRIPT WILL EXIT
 */
+const log = console.log
+const exec = require('child_process').exec
+const logger = (err, stdout, stderr) => {
+	if(err) {
+		console.error(err)
+		return
+	}
+	log(stdout)
+}
 
-if(process.platform === 'win32') {
+main()
 
-	console.log('Windows detected. Installing Microsoft IE11 test launcher... Edge is TODO')
+function main() {
+	if (process.env['npm_config_production'])
+			log('Production install. Not installing test dependencies.')
+	
+	else install()
+}
 
-	const exec = require('child_process').exec
-//TODO: install  karma-edge-launcher when we are on a CI server that support Edge (e.i. Windows Server 2016)
-	exec('npm install --production karma-ie-launcher karma-edge-launcher', (err, stdout, stderr) => {
+function install() {
 
-		if(err) {
-			console.error(err)
-			return
-		}
+	switch(process.platform) {
+		case 'win32':
+			log('Windows detected.')
+			log(require('os').release())
+			log('Installing Microsoft IE11 and Edge test launcher.')
 
-		console.log(stdout)
+			exec('npm install --production karma-ie-launcher karma-edge-launcher', logger)
 
-	})
+			break
+
+		case 'linux':
+			log('Linux detected.')
+		case 'darwin':
+			log('*macOS detected.')
+		default:
+
+			;
+
+			break
+	}
 
 }
