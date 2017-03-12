@@ -41,6 +41,8 @@ function detect() {
 				log('Installing Microsoft IE11 and Edge test launcher.')
 				install('karma-ie-launcher karma-edge-launcher')
 
+				if(process.env[''])
+
 			}
 
 			break
