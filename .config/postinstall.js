@@ -20,18 +20,28 @@ function main() {
 	if (process.env['npm_config_production'])
 			log('Production install. Not installing test dependencies.')
 	
-	else install()
+	else detect()
 }
 
-function install() {
+function detect() {
 
 	switch(process.platform) {
 		case 'win32':
 			log('Windows detected.')
-			log(require('os').release())
-			log('Installing Microsoft IE11 and Edge test launcher.')
 
-			exec('npm install --production karma-ie-launcher karma-edge-launcher', logger)
+			// if OS is Windows7 then only run tests in IE11
+			if(require('os').release().startsWith('7.')) {
+
+				log('Windows 7 detected.')
+				log('Installing Microsoft IE11 test launcher.')
+				install('karma-ie-launcher')
+
+			}	else {
+
+				log('Installing Microsoft IE11 and Edge test launcher.')
+				install('karma-ie-launcher karma-edge-launcher')
+
+			}
 
 			break
 
@@ -41,9 +51,13 @@ function install() {
 			log('*macOS detected.')
 		default:
 
-			;
+			// nothing yet;
 
 			break
 	}
 
+}
+
+function install(packageString) {
+	exec('npm install --production ' + packageString, logger)	
 }
