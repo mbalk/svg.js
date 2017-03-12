@@ -1,11 +1,7 @@
 clone_depth: 1
 
-# use Windows 10
-#image: Visual Studio 2017
-
-# matrix from w3's appveyor yml (https://github.com/w3c/respec/blob/develop/appveyor.yml)
-#matrix:
-#  fast_finish: true
+# use Windows Server 2016 (https://appveyor.tenderapp.com/discussions/questions/3424-confusion-about-how-to-change-to-os)
+image: Visual Studio 2017
 
 # Install scripts. (runs after repo cloning)
 install:
