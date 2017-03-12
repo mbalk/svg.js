@@ -11,6 +11,7 @@ install:
 # Post-install test scripts.
 test_script:
   # Output useful info for debugging.
+  - Write-Host (Get-WmiObject -class Win32_OperatingSystem).Caption
   - node --version
   - npm --version
   # run tests
