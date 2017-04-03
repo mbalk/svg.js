@@ -380,7 +380,7 @@ declare namespace svgjs {
     export interface Image extends Shape {
         new (): Image;
         load(url?: string): this;
-        loaded(cb: (image: Image, info: { width: number, height: number, ratio: number, url: string }) => any): this;
+        loaded(cb: (info: { width: number, height: number, ratio: number, url: string }) => any): this;
         error(cb: (image: Image, info: { width: number, height: number, ratio: number, url: string }) => any): this;
     }
     interface Container {
