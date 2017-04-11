@@ -858,7 +858,7 @@ declare namespace svgjs {
         scaleY?: number;
         skewX?: number;
         skewY?: number;
-        matrix?: string; // 1,0,0,1,0,0
+        matrix?: Matrix; // 1,0,0,1,0,0
         a?: number; // direct digits of matrix
         b?: number;
         c?: number;
